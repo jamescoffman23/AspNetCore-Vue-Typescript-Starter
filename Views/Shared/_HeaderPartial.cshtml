@@ -1,0 +1,68 @@
+@using Microsoft.AspNetCore.Authorization
+@using AspNetCoreVueTypescriptStarter.Infrastructure.Extensions
+@using AspNetCoreVueTypescriptStarter.Models
+@inject IAuthorizationService AuthorizationService
+@{
+    var assemblyversion = ViewBag.Version as Version ?? new Version(0, 0, 0, 0); //major,minor/
+    var ver = (assemblyversion.Major < 1) ? $"(BETA: {assemblyversion.Major}:{assemblyversion.Minor}:{assemblyversion.Build}:{assemblyversion.MinorRevision} )" : "";
+    var appname = "Starter";
+}
+<header>
+    <v-navigation-drawer persistent
+                         enable-resize-watcher
+                         v-model="navDrawer"
+                         app>
+        @* shows list of authorized apps - authorize in pucidentity db *@
+        <v-layout row style="padding-top: 65px;">
+            <v-flex xs2>
+            </v-flex>
+            <v-flex>
+                <v-toolbar card prominent style="background-color: white;">
+                    <v-toolbar-title class="title">@appname</v-toolbar-title>
+                </v-toolbar>
+            </v-flex>
+        </v-layout>
+        <v-divider></v-divider>
+        <v-list class="pt-2">
+            @* add new pages to side nav here *@
+            <v-list-tile class="mt-0" href="@Url.Action("Index", "Root")">
+                <v-list-tile-content>
+                    <v-list-tile-title class="subheading"><v-icon class="pl-2 pr-3">dashboard</v-icon>Home</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+    </v-navigation-drawer>
+    <v-toolbar fixed app clipped-left dark color="blue darken-3" flat>
+        <v-toolbar-side-icon v-on:click.stop="navDrawer = !navDrawer" aria-label="Side Navigation Drawer"></v-toolbar-side-icon>
+        <v-toolbar-title style="width: 350px" class="ml-0 pl-3">
+            <v-icon dark>flash_on</v-icon>
+            <span class="hidden-sm-and-down">Public Utility Commission</span>
+            <span class="hidden-md-and-up">PUCT</span>
+        </v-toolbar-title>
+        <v-spacer></v-spacer>
+        
+        @* User Info Dropdown menu *@
+        <v-menu bottom :close-on-content-click="true"
+                class="hidden-sm-and-down"
+                allow-overflow
+                max-height="600" style="z-index: 301;">
+            <v-btn icon slot="activator" aria-label="User Info">
+                <v-avatar size="38">
+                    <img src="@ViewBag.UserInfo?.Photo" alt="Avatar">
+                </v-avatar>
+            </v-btn>
+            <v-card>
+                <div style="overflow: auto; max-height: 600px;">
+                    <v-list>
+                        <v-list-tile style="height: 14px;"><v-list-tile-title style="font-size: small;">Username: @ViewBag.UserInfo?.UserName</v-list-tile-title></v-list-tile>
+                        <v-list-tile style="height: 14px;"><v-list-tile-title style="font-size: small;">Email: @ViewBag.UserInfo?.Email</v-list-tile-title></v-list-tile>
+                        <v-list-tile style="height: 14px;"><v-list-tile-title style="font-size: small;">Phone: @ViewBag.UserInfo?.Phone</v-list-tile-title></v-list-tile>
+                        <v-list-tile style="height: 10px;"><v-list-tile-title style="font-size: small;">App Version: @ver</v-list-tile-title></v-list-tile>
+                        <v-divider class="mt-4"></v-divider>
+                     </v-list>
+                </div>
+            </v-card>
+        </v-menu>
+        <span class="text-xs-right hidden-xs-only" style="font-size: medium;">@ViewBag.UserInfo?.Name</span>
+    </v-toolbar>
+</header>

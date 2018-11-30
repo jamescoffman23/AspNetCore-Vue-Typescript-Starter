@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Page Not Found";
+}
+
+<component inline-template is="notFoundPage">
+    <v-layout row wrap class="full-height">
+        <v-flex xs12 lg10>
+            <v-card hover class="ma-2">
+                <v-card-title>
+                    <h1 class="headline">Oops! This page doesn't exist</h1>
+                </v-card-title>
+                <v-card-text class="flex-spacer">
+                    <iframe src="https://www.youtube.com/embed/SIaFtAKnqBU?vq=hd720&rel=0&showinfo=0&controls=0&iv_load_policy=3&loop=1&playlist=SIaFtAKnqBU&modestbranding=1&autoplay=1"
+                            height="500" width="100%" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>
+                    <p class="headline">
+                        Not to worry. You can either head back to home, or sit here and listen to a goat scream like
+                        a human.
+                    </p>
+                    <p>
+                        Please head back and try again.
+                    </p>
+                </v-card-text>
+                <v-card-actions>
+                    <p>
+                        <v-btn color="primary" v-on:click="imFrustrated">click here</v-btn> to check your frustation level ...
+                    </p>
+                    <v-progress-circular v-show="frustrationLevel > 0" size="75"
+                                         width="15"
+                                         rotate="360"
+                                         v-bind:value="frustrationLevel"
+                                         v-bind:color="levelColor">
+                        {{frustrationLevel}}
+                    </v-progress-circular>
+                </v-card-actions>
+            </v-card>
+        </v-flex>
+    </v-layout>
+</component>
+
+@section Scripts {
+}

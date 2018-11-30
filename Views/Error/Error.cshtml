@@ -1,0 +1,28 @@
+﻿@{
+  ViewData["Title"] = "Error";
+}
+<component inline-template is="errorPage">
+    <v-layout row wrap class="full-height">
+        <v-card hover class="ma-2">
+            <v-card-title>
+                <h1 class="headline">An Unexpected Error Occurred</h1>
+            </v-card-title>
+            <v-card-text class="flex-spacer">
+                <p class="headline">
+                    Rest assurred, this error has been logged and the IT staff has been notified.
+                </p>
+                <p>In the meantime please view these precious photos ...</p>
+            </v-card-text>
+            <v-card-media>
+                <v-flex xs-12>
+                    <v-carousel>
+                        <v-carousel-item v-for="(p,i) in photos" v-bind:src="p.src" :key="i"></v-carousel-item>
+                    </v-carousel>
+                </v-flex>
+            </v-card-media>
+        </v-card>
+    </v-layout>
+</component>
+
+@section Scripts {
+}

@@ -1,0 +1,1 @@
+{"version":3,"file":"eventBus.js","sourceRoot":"","sources":["eventBus.ts"],"names":[],"mappings":"AACA,IAAI,QAAQ,GAAQ,EAAE,CAAA;AAEtB,QAAQ,CAAC,OAAO,GAAG,UAAC,GAAQ,EAAE,OAAY;IACtC,GAAG,CAAC,SAAS,CAAC,SAAS,GAAG,IAAI,GAAG,EAAE,CAAC;AACxC,CAAC,CAAC;AAEF,eAAe,QAAQ,CAAA"}

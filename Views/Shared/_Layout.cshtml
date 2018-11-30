@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]-@ViewData["AppName"]</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <environment include="Development">
+        <link rel="stylesheet" href="~/dist/vendor.css" />
+        <link rel="stylesheet" href="~/css/puc.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+    </environment>
+    <environment include="Production">
+        <link rel="stylesheet" href="~/dist/vendor.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/css/puc.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <div id="app-root" v-cloak ref="app">
+        <v-app light>
+            @await Html.PartialAsync("_HeaderPartial")
+            <v-content style="background-color: whitesmoke;">
+                <v-container fluid class="pt-0 mt-0 pr-0 pl-0">
+                    @* <v-slide-y-transition mode="out-in"> *@
+                        <v-layout column align-top ref="page">
+                            @Html.AntiForgeryToken()
+                            @RenderBody()
+                        </v-layout>
+                    @* </v-slide-y-transition> *@
+                </v-container>
+                <page-loading></page-loading>
+            </v-content>
+            <v-snackbar :timeout   ="snackBar.timeout"
+                        :top       ="snackBar.y === 'top'"
+                        :bottom    ="snackBar.y === 'bottom'"
+                        :right     ="snackBar.x === 'right'"
+                        :left      ="snackBar.x === 'left'"
+                        :multi-line="snackBar.mode === 'multi-line'"
+                        :vertical  ="snackBar.mode === 'vertical'"
+                        v-model    ="snackBar.show">
+                {{snackBar.message}}
+                <v-btn flat color="primary" v-on:click.native="snackBar.show = false">Close</v-btn>
+            </v-snackbar>
+            <v-dialog v-model="pageAlert.show" persistent max-width="450">
+                <v-card>
+                    <v-card-title class="headline">{{pageAlert.alertTitle}}</v-card-title>
+                    <v-card-text v-html="pageAlert.alertMessage"></v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn color="green darken-1" flat v-on:click.native="pageAlert.show = false">Close</v-btn>
+                    </v-card-actions>
+                </v-card>
+            </v-dialog>
+        </v-app>
+    </div>
+    <script>
+        window.BaseUrl = '@(Url.Content("~/"))';
+    </script>
+    <script src="~/dist/app.bundle.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

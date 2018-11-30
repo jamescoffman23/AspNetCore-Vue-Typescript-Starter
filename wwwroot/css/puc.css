@@ -1,0 +1,384 @@
+﻿html, body {
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+    height: 100%;
+}
+
+.full-height .flex {
+    display: flex;
+}
+.full-height .flex > .card {
+    flex: 1 1 auto;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.noScroll {
+    position: fixed; 
+    overflow: hidden !important;
+    /* overflow-x: hidden; /* disable scrollbar on x-axis only !1! */
+    /* overflow-y: hidden; /* disable scrollbar on y-axis only !1! */
+}
+.lock {
+    pointer-events: none;
+    touch-action: none;
+}
+
+.backdrop {
+    position: absolute;
+    pointer-events: none;
+    touch-action: none;
+    overflow: hidden;
+    /* overflow-x: hidden; /* disable scrollbar on x-axis only !1! */
+    /* overflow-y: hidden; /* disable scrollbar on y-axis only !1! */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 201 !important;
+    background-color: rgba(0, 0, 0, 0.52);
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    /* transition: all 0.5s cubic-bezier(0.35, 0, 0.25, 1); */
+}
+
+    /* .backdrop.load-active { */
+    /*     opacity: 1; */
+    /*     pointer-events: auto; */
+    /*     overflow: hidden; */
+    /*     overflow-x: hidden; /* disable scrollbar on x-axis only !1! */
+    /*     overflow-y: hidden; /* disable scrollbar on y-axis only !1! */
+    /* } */
+
+    .backdrop.transparent {
+        background: rgba(0, 0, 0, 0.005);
+    }
+
+/* .backdrop.disable-scroll { */
+/*     overflow: hidden; */
+/*     overflow-x: hidden; /* disable scrollbar on x-axis only !1! */
+/*     overflow-y: hidden; /* disable scrollbar on y-axis only !1! */
+/*     position: fixed;    /* disable scroll !1! */
+/*     /* top: 0; !1! */
+/*     /* left: 0; !1! */
+/*     /* right: 0; !1! */
+/*     /* bottom: 0; !1! */
+/*     pointer-events: none; /* OPTIONAL: none of dom element will be click-able !1! */
+/* } */
+
+table.v-table {
+    width: 99% !important;
+}
+
+.shrinkHead thead tr {
+    height: 35px !important;
+}
+
+/*.searchForm {*/
+/*    display: grid;*/
+/*    grid-column-gap: 5px;*/
+/*    grid-row-gap: 10px;*/
+/*    grid-template-columns: 180px 200px 200px 200px 200px 200px;*/
+/*    grid-template-rows: 40px 40px 40px 40px 40px;*/
+/*}*/
+
+.width99 {
+    width: 99% !important;
+}
+
+.width100 {
+    width: 100% !important;
+}
+.inputSolidBox {
+    border: 1px solid lightgrey;
+}
+.activeTab {
+    background-color: white;
+    opacity: 1 !important;
+    margin-top: 7px;
+    /* margin-left: 5px; */
+}
+.positionRel {
+    position: relative;
+}
+.testBorder {
+    border: 1px solid black;
+}
+
+.quick-search-container {
+    overflow: auto;
+    max-height: 600px;
+}
+
+.row-height {
+    max-height: 75px;
+}
+
+/* ******************************** */
+
+.display-data label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 0px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #757575;
+    vertical-align: top;
+    white-space: nowrap;
+}
+
+.display-data span {
+    width: 100%;
+    padding: 4px 4px;
+    font-size: 15px;
+    line-height: 1.5625;
+    /* color: rgba(0, 0, 0, 0.4); */
+}
+
+/* ******************************** */
+
+.form-group label {
+    display:       inline-block;
+    max-width:     100%;
+    margin-bottom: 0px;
+    font-size:     15px;
+    font-weight:   600;
+    color:         #757575;
+    vertical-align : top;
+    white-space: nowrap;
+}
+
+.form-group .checkbox:first-of-type,
+.form-group .radio:first-of-type {
+    margin-top: 22px;
+}
+
+.form-group .checkbox:last-of-type,
+.form-group .radio:last-of-type {
+    margin-bottom: 27px;
+}
+
+/* .form-group .input[type="datetime-local"]::before::after { */
+/*     -webkit-box-sizing: border-box !important; */
+/*     -moz-box-sizing: border-box !important; */
+/*     box-sizing: border-box !important; */
+/* } */
+
+input[type="date"].form-control,
+input[type="datetime-local"].form-control {
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+}
+
+
+.form-control {
+    display:          block;
+    width:            100%;
+    height:           36px !important;
+    padding:          4px 4px;
+    font-size:        15px;
+    line-height:      1.5625;
+    color:           rgba(0, 0, 0, 0.9);
+    background-color: #FFFFFF;
+    background-image: none;
+    border:           1px solid lightgray;
+    border-radius:    0px;
+    box-shadow:       inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition:       border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+input[type="datetime-local"]::-webkit-clear-button {
+    -webkit-appearance: none;
+    display: none;
+}
+input[type="datetime-local"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+/* input[type="datetime-local"]::-webkit-calendar-picker-indicator { */
+/*     -webkit-appearance: none; */
+/*     display: none; */
+/* } */
+
+textarea.form-control {
+    resize: none;
+    overflow-y: auto;
+}
+
+
+    input.form-control,
+    textarea.form-control
+    select.form-control {
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 0px;
+        margin-top: 2px;
+        margin-bottom: 10px;
+        /* max-width: 296px; */
+        min-width: 88px;
+        min-height: 36px;
+        background-clip: border-box;
+        box-sizing: border-box;
+        padding-left: 11px;
+        vertical-align: top;
+        outline: 0;
+    }
+
+select.form-control {
+    -webkit-appearance: menulist;
+    color: rgba(0, 0, 0, 0.9) !important; /* #757575 */
+    border-color: lightgray;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+
+textarea.form-control {
+    resize: none;
+    overflow-y: auto;
+    height: auto !important;
+}
+
+input.form-control,
+textarea.form-control {
+    box-shadow: none;
+    transition: none;
+    color:            rgba(0, 0, 0, 0.9);
+    background-color: rgba(255, 255, 255, 0.8);
+    /* border-color: rgba(0, 0, 0, 0.6); */
+}
+
+/* Disabled readonly */
+
+.form-control[readonly] {
+    background-color: #FAFAFA;
+    opacity: 1;
+    cursor: grab;
+}
+
+.form-control[disabled],
+/* .form-control[readonly], */
+ fieldset[disabled]
+.form-control {
+    background-color: rgba(0, 0, 0, 0.1);
+    opacity: 1;
+}
+
+.form-control[disabled],
+ fieldset[disabled]
+.form-control {
+    cursor: not-allowed;
+}
+
+input.form-control:disabled,
+input.form-control[disabled],
+textarea.form-control:disabled,
+textarea.form-control[disabled] {
+    color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.form-group label.disabled,
+.form-group .form-group-label.disabled {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+/* Hover, Focus */
+
+input.form-control:hover,
+textarea.form-control:hover {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.8);
+}
+
+input.form-control:focus,
+textarea.form-control:focus {
+    color: #000000;
+    background-color: #FFFFFF;
+    border-color: #0078D7;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 120, 215, 0.6);
+}
+
+
+select.form-control option {
+    padding-left: 1em;
+}
+
+select.form-control:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+select.form-control:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+select.form-control::after {
+    color: rgba(0, 0, 0, 0.6);
+}
+select.form-control:focus {
+    color: #FFFFFF;
+    background-color: #0078D7;
+    box-shadow: none;
+}
+select.form-control:focus option {
+    background-color: #F2F2F2;
+    color: #000000;
+}
+select.form-control option:checked {
+    color: #FFFFFF;
+    background-color: #0078D7;
+}
+
+
+.has-error .help-block,
+.has-error .control-label,
+.has-error .radio,
+.has-error .checkbox,
+.has-error .radio-inline,
+.has-error .checkbox-inline,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+    color: #D02E00; }
+
+.has-error .form-control {
+    border-color: #D02E00;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+.has-error .form-control:focus {
+    border-color: #9d2300;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ff6337;
+}
+
+.is-dirty .help-block,
+.is-dirty .control-label,
+.is-dirty .radio,
+.is-dirty .checkbox,
+.is-dirty .radio-inline,
+.is-dirty .checkbox-inline,
+.is-dirty.radio label,
+.is-dirty.checkbox label,
+.is-dirty.radio-inline label,
+.is-dirty.checkbox-inline label {
+    color: gold;
+}
+
+.is-dirty .form-control {
+    border-color: gold;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+    .is-dirty .form-control:focus {
+        border-color: gold;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ff6337;
+    }
+
+
+/* =================================================== */

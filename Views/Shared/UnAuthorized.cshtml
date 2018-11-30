@@ -1,0 +1,32 @@
+﻿@{
+  ViewData["Title"] = "UnAuthorized";
+}
+
+<component inline-template is="unauthorizedPage">
+    <v-layout row wrap class="full-height">
+        <v-card hover class="ma-2">
+            <v-card-title>
+                <h1 class="display-1">Unauthorized!</h1>
+            </v-card-title>
+            <v-card-text class="flex-spacer">
+                <p class="headline">
+                    Oops! It appears you are unauthorized to access this page.
+                </p>
+                <p class="body-2">
+                    If you need or should have access to this resource then please contact the Helpdesk.
+                </p>
+                <ul>
+                    <li>Phone</li>
+                    <li>Email</li>
+                    <li>Fax</li>
+                    <li>Address</li>
+                </ul>
+            </v-card-text>
+            <v-card-actions>
+            </v-card-actions>
+        </v-card>
+    </v-layout>
+</component>
+
+@section Scripts {
+}

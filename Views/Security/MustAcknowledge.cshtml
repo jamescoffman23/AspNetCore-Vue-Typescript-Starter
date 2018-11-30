@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Security Confirmation";
+}
+<component inline-template is="mustAcknowledgePage">
+    <v-layout row wrap class="full-height">
+        <v-card hover class="ma-2">
+            <v-card-title>
+                @if (ViewBag.Error != null)
+                {
+                    <h1 class="headline"><v-icon x-large color="red">warning</v-icon> @ViewBag.Error</h1>
+                }
+                else
+                {
+                    <h1 class="headline"><v-icon x-large color="red">warning</v-icon> Attention!</h1>
+                }
+            </v-card-title>
+            <v-card-text class="flex-spacer">
+                <p class="title">This application contains Sensitive information.</p>
+                <p class="subheading"> Access to and use of this system is restricted to authorized individuals only.</p>
+                <p class="body-2">
+                    By clicking "I Agree", you are confirming you are authorized to use this system and you will abide by applicable federal and state laws, Executive Orders, directives, policies, regulations, standards, and accordance to the Information Security Policies.
+                </p>
+                <form asp-controller="Security" asp-action="SecurityNotice" method="post">
+                    <input name="response" type="hidden" value="true" />
+                    <v-btn color="warning" type="submit">I Agree</v-btn>
+                </form>
+            </v-card-text>
+        </v-card>
+    </v-layout>
+</component>
+
+@section Scripts {
+}
